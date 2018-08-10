@@ -28,10 +28,22 @@
             <br>
       <form [formGroup]="newsLetterForm" (ngSubmit)="saveNewsLetter()">
 
-          <div class="input-group">
           
-                  <input class="form-control" type="email" name="newsLetterEmail" formControlName="newsLetterEmail" placeholder="Enter Your Email" autofocus>
+                  <input class="form-control" type="email" name="newsLetterEmail" formControlName="newsLetterEmail" placeholder="Enter Your Email">
+                  <br>
+                  <div *ngIf="newsLetterEmail.invalid && (newsLetterEmail.dirty ||newsLetterEmail.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="newsLetterEmail.errors.pattern">
+                      Email must be correct format.
+                    </div>
+                <div *ngIf="newsLetterEmail.errors.required">
+                  Email is required.
                 </div>
+                <!-- <div *ngIf="newsLetterEmail.errors.minlength">
+                  Name must be at least 2 characters long.
+                </div> -->
+                </div>
+                
           
             <button class="btn-block btn-primary" type="submit" [disabled]="!newsLetterForm.valid"><i class="fa fa-user-plus"></i>Sign Up</button>
               </form>

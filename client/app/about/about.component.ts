@@ -22,9 +22,10 @@ export class AboutComponent implements OnInit {
     public toast: ToastComponent,
     private newsLetterService: NewsletterService) { }
   ngOnInit() {
-    if (this.signedup === 'true') {
-      this.newsletter = true;
-    }
+    window.scroll(0, 0);
+    // if (this.signedup === 'true') {
+    //   this.newsletter = true;
+    // }
     this.newsLetterForm = this.formBuilder.group({
       newsLetterEmail: this.newsLetterEmail
     });
