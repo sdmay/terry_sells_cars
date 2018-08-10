@@ -2,8 +2,11 @@ import * as express from 'express';
 
 import CatCtrl from './controllers/cat';
 import UserCtrl from './controllers/user';
+import NewsLetterCtrl from './controllers/newsletter';
+
 import Cat from './models/cat';
 import User from './models/user';
+import NewsLetter from './models/newsletter'
 const nodemailer = require('nodemailer');
 
 export default function setRoutes(app) {
@@ -12,7 +15,22 @@ export default function setRoutes(app) {
 
   const catCtrl = new CatCtrl();
   const userCtrl = new UserCtrl();
-
+const newsletterCtrl = new NewsLetterCtrl();
+  // router.post('/nl', (req, res) => {
+  //   console.log(req.body.email);
+  //   const obj = new this.model(req.body);
+  //   obj.save((err, item) => {
+  //     // 11000 is the code for duplicate key error
+  //     if (err && err.code === 11000) {
+  //       res.sendStatus(400);
+  //     }
+  //     if (err) {
+  //       return console.error(err);
+  //     }
+  //     res.status(200).json(item);
+  //   });
+  // });
+  router.route('/nl').post(newsletterCtrl.insert);
   // Cats
   router.route('/cats').get(catCtrl.getAll);
   router.route('/cats/count').get(catCtrl.count);
@@ -58,7 +76,7 @@ export default function setRoutes(app) {
       }
       else {
         console.log(info);
-        res.json({'success': 'ok'});
+        res.json({'success': 'okey dokey'});
       }
 
    });

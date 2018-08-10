@@ -1,0 +1,1 @@
+{"version":3,"file":"newsletter.js","sourceRoot":"","sources":["../../../server/models/newsletter.ts"],"names":[],"mappings":";;AAAA,mCAAqC;AAErC,IAAM,gBAAgB,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IAC3C,eAAe,EAAE,MAAM;CACxB,CAAC,CAAC;AAEH,IAAM,UAAU,GAAG,QAAQ,CAAC,KAAK,CAAC,IAAI,EAAE,gBAAgB,CAAC,CAAC;AAG1D,kBAAe,UAAU,CAAC"}

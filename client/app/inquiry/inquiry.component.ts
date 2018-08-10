@@ -48,6 +48,7 @@ export class InquiryComponent implements OnInit {
   public toast: ToastComponent) { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     this.registerForm = this.formBuilder.group({
       name: this.name,
       email: this.email,

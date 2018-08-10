@@ -3,11 +3,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var cat_1 = require("./controllers/cat");
 var user_1 = require("./controllers/user");
+var newsletter_1 = require("./controllers/newsletter");
 var nodemailer = require('nodemailer');
 function setRoutes(app) {
     var router = express.Router();
     var catCtrl = new cat_1.default();
     var userCtrl = new user_1.default();
+    var newsletterCtrl = new newsletter_1.default();
+    // router.post('/nl', (req, res) => {
+    //   console.log(req.body.email);
+    //   const obj = new this.model(req.body);
+    //   obj.save((err, item) => {
+    //     // 11000 is the code for duplicate key error
+    //     if (err && err.code === 11000) {
+    //       res.sendStatus(400);
+    //     }
+    //     if (err) {
+    //       return console.error(err);
+    //     }
+    //     res.status(200).json(item);
+    //   });
+    // });
+    router.route('/nl').post(newsletterCtrl.insert);
     // Cats
     router.route('/cats').get(catCtrl.getAll);
     router.route('/cats/count').get(catCtrl.count);
@@ -44,7 +61,7 @@ function setRoutes(app) {
             }
             else {
                 console.log(info);
-                res.json({ 'success': 'ok' });
+                res.json({ 'success': 'okey dokey' });
             }
         });
     });

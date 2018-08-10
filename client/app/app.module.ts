@@ -7,6 +7,7 @@ import { CatService } from './services/cat.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { InquiryService } from './services/inquiry.service';
+import { NewsletterService } from './services/newsletter.service';
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
 import { AppComponent } from './app.component';
@@ -61,7 +62,8 @@ export function tokenGetter() {
     AuthGuardAdmin,
     CatService,
     UserService,
-    InquiryService
+    InquiryService,
+    NewsletterService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
