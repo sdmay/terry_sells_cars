@@ -24,15 +24,16 @@
       <br>We have the cleanest cars at the best prices with everything priced at or near trade-in value.<br>
     </p>
     <div *ngIf="!newsletter">
+        <h3>Receive Our Weekly New Inventory</h3>
+            <br>
       <form [formGroup]="newsLetterForm" (ngSubmit)="saveNewsLetter()">
 
           <div class="input-group">
-            <h3>Receive Our Weekly New Inventory</h3>
-            <br>
+          
                   <input class="form-control" type="email" name="newsLetterEmail" formControlName="newsLetterEmail" placeholder="Enter Your Email" autofocus>
                 </div>
           
-            <button class="btn btn-primary" type="submit" [disabled]="!newsLetterForm.valid"><i class="fa fa-user-plus"></i>Sign Up</button>
+            <button class="btn-block btn-primary" type="submit" [disabled]="!newsLetterForm.valid"><i class="fa fa-user-plus"></i>Sign Up</button>
               </form>
             </div>
       <br>

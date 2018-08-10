@@ -27,7 +27,7 @@ export class InquiryComponent implements OnInit {
   ]);
   phone = new FormControl('', [
     Validators.required,
-    // Validators.pattern(),
+    Validators.pattern('[0-9]*'),
     Validators.minLength(10),
     Validators.maxLength(15)
   ]);

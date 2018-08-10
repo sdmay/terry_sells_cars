@@ -39,13 +39,13 @@
               <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
     class="alert alert-danger">
     <div *ngIf="phone.errors.required">
-        Phone is required.
+        Phone number is required.
       </div>
       <div *ngIf="phone.errors.minlength">
-        Phone must be valid.
+        Phone number must be valid.
       </div>
       <div *ngIf="phone.errors.pattern">
-          Phone must be in correct format.
+          Phone number must be only numbers.
         </div>
     </div>
               
