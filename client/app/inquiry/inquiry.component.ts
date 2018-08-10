@@ -41,7 +41,7 @@ export class InquiryComponent implements OnInit {
   q4 = new FormControl('', [
     Validators.required
   ]);
-  isBot = false;
+  isBot = true;
   constructor(private formBuilder: FormBuilder,
   private inquiryService: InquiryService,
   private router: Router,
@@ -86,7 +86,7 @@ export class InquiryComponent implements OnInit {
       res => {
         console.log(res);
         this.toast.setMessage('Thank you ' + this.registerForm.value.name + '!', 'success');
-        setTimeout(() => this.router.navigate(['/thankyou']), 1200);
+        setTimeout(() => this.router.navigate(['/thankyou']), 1500);
       },
       error => this.toast.setMessage('Email already exists', 'danger')
     );

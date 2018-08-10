@@ -28,8 +28,8 @@ function setRoutes(app) {
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'sdmay10@gmail.com',
-                pass: 'dali0328'
+                user: process.env.EMAIL,
+                pass: process.env.PASSWORD
             }
         });
         var mailOptions = {

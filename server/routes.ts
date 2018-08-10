@@ -35,8 +35,8 @@ export default function setRoutes(app) {
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-             user: 'sdmay10@gmail.com',
-             pass: 'dali0328'
+             user: process.env.EMAIL,
+             pass: process.env.PASSWORD
          }
      });
      const mailOptions = {
