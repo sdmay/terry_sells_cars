@@ -1,0 +1,18 @@
+.alignit {
+    text-align: center;
+}
+.sticky {
+    bottom:0;
+    left: 0;
+    position:fixed;
+    z-index:150;
+    height: 50px;
+
+}
+.fit-image {
+    width: 100%
+}
+footer {
+    margin-top: 20px;
+    width: 100%;
+}

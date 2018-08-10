@@ -1,0 +1,154 @@
+<app-toast [message]="toast.message"></app-toast>
+  <!-- <button>Test</button> -->
+  <!-- <div class="card"> -->
+      <form [formGroup]="registerForm" (ngSubmit)="inquiry()">
+          <!-- <div class="input-group"> -->
+              
+              <input class="form-control formpad" type="text" name="name" formControlName="name" placeholder="Your Name">
+              <div *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="name.errors.pattern">
+      Name must be only letters.
+    </div>
+  <div *ngIf="name.errors.minlength">
+    Name must be at least 2 characters long.
+  </div>
+  </div>
+
+              <input class="form-control" type="email" name="email" formControlName="email" placeholder="Your Email Address">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="email.errors.required">
+    Email is required.
+  </div>
+  <div *ngIf="email.errors.minlength">
+    Email must be at least 2 characters long.
+  </div>
+  <div *ngIf="email.errors.pattern">
+      Email must be in correct format.
+    </div>
+  </div>
+              
+              
+              <input class="form-control" type="tel" name="phone" formControlName="phone" placeholder="Your Mobile Phone Number">
+              <div *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+    class="alert alert-danger">
+    <div *ngIf="phone.errors.required">
+        Phone is required.
+      </div>
+      <div *ngIf="phone.errors.minlength">
+        Phone must be valid.
+      </div>
+      <div *ngIf="phone.errors.pattern">
+          Phone must be in correct format.
+        </div>
+    </div>
+              
+              
+              <select class="form-control" name="q1" formControlName="q1" >
+                  <option value="" selected disabled>Do You have a vehicle to trade?</option>
+                  <option value="true">Yes</option>
+                  <option value= "false">No</option>
+                </select>
+                <select class="form-control" name="q2" formControlName="q2" *ngIf="trade">
+                    <option value="" selected disabled>Do you owe money on your trade?</option>
+                    <option value="true">Yes</option>
+                    <option value= "false">No</option>
+                  </select>
+                  <select class="form-control" name="q3" formControlName="q3" *ngIf="owe">
+                      <option value="" selected disabled>If so, how much?</option>
+                      <option value="1,000-5,000">$1,000-5,000</option>
+                      <option value= "5,000-1,0000">$5,000-10,000</option>
+                      <option value= "10,000-15000">$10,000-15,000</option>
+                    </select>
+                    <select class="form-control" name="q4" formControlName="q4" >
+                        <option value="" selected disabled>How much can you put down?</option>
+                        <option value="1,000-5,000">$1,000-5,000</option>
+                        <option value= "5,000-1,0000">$5,000-10,000</option>
+                        <option value= "10,000-15,000">$10,000-15,000</option>
+                      </select>
+
+              <!-- </div>   -->
+              <div style="text-align: center">
+        <re-captcha style="display: inline-block; margin-top: 10px"
+          (resolved)="resolved($event)"
+          siteKey="6LeGR2kUAAAAAB2i4cNdpmSh8cBZxKd64rNV9zRk"
+        >
+
+      </re-captcha>
+    </div>
+    <div class="submission">
+      <button class="btn btn-primary" type="submit" [disabled]="!registerForm.valid || isBot">Submit</button>
+    </div>
+      
+        </form>
+        <div>
+            <br><br>
+            <img class= "fit-image" src="https://firebasestorage.googleapis.com/v0/b/phonesites-prod.appspot.com/o/images%2FUciHm7wtgKavpiCm4FP9IAMjRi83%2F1533748920500*Capture%2B_2018-08-08-13-19-33~2*png?alt=media&token=ab226939-eefa-4fff-a28c-a3c52ca150b3"><br>
+            <br>
+            <img class="fit-image" src="https://firebasestorage.googleapis.com/v0/b/phonesites-prod.appspot.com/o/images%2FUciHm7wtgKavpiCm4FP9IAMjRi83%2F1533748927428*Capture%2B_2018-08-08-13-20-03~2*png?alt=media&token=71cee56c-3a8f-4300-8d20-72bc7eeff246">
+          <img class="fit-image" src="https://firebasestorage.googleapis.com/v0/b/phonesites-prod.appspot.com/o/images%2FUciHm7wtgKavpiCm4FP9IAMjRi83%2F1533736397597*Capture%2B_2018-07-11-12-00-11*png?alt=media&token=d7253248-fa4c-40bb-bb80-e39af7d77056" 
+            alt="Please fill out your information "/>
+      </div>
+        
+    
+    
+  <!-- </div> -->
+<!-- 
+<div class="card">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+     
+    <div class="input-group" [ngClass]="setClassUsername()">
+      <input class="form-control" type="text" name="username" formControlName="username" placeholder="Username" autofocus>
+    </div>
+    <div class="input-group" [ngClass]="setClassEmail()">
+      <input class="form-control" type="email" name="email" formControlName="email" placeholder="Email">
+    </div>
+    <div class="input-group" [ngClass]="setClassPassword()">
+      <input class="form-control" type="password" name="password" formControlName="password" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <select class="form-control" name="name" formControlName="name" >
+        <option value="" selected disabled>Do you have a vehicle to trade?</option>
+        <option value="true">Yes</option>
+        <option value= "false">No</option>
+      </select>
+</div>
+<div class="form-group">
+  <select class="form-control" name="name" formControlName="name" >
+    <option value="" selected disabled>Do you owe money on your trade?</option>
+    <option value="true">Yes</option>
+    <option value= "false">No</option>
+  </select>
+</div>
+<div class="form-group">
+  <select class="form-control" name="name" formControlName="name" >
+    <option value="" selected disabled>If so, how much??</option>
+    <option value="true">Yes</option>
+    <option value= "false">No</option>
+  </select>
+</div>
+<div class="form-group">
+  <select class="form-control" name="name" formControlName="name" >
+    <option value="" selected disabled>How much can you put down?</option>
+    <option value="true">Yes</option>
+    <option value= "false">No</option>
+  </select>
+</div>
+<div class="form-group">
+  <select class="form-control" name="name" formControlName="name" >
+    <option value="" selected disabled>Do You have a vehicle to trade?</option>
+    <option value="true">Yes</option>
+    <option value= "false">No</option>
+  </select>
+</div>
+
+    </form>
+
+
+</div> -->
