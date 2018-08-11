@@ -23,9 +23,9 @@ export class AboutComponent implements OnInit {
     private newsLetterService: NewsletterService) { }
   ngOnInit() {
     window.scroll(0, 0);
-    // if (this.signedup === 'true') {
-    //   this.newsletter = true;
-    // }
+    if (this.signedup === 'true') {
+      this.newsletter = true;
+    }
     this.newsLetterForm = this.formBuilder.group({
       newsLetterEmail: this.newsLetterEmail
     });
